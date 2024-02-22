@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packing for a Trip</title>
+</head>
+<body>
+
+<h1>Kylie Bales - Packs for a Trip</h1>
+
+<form>
+    <label>
+        <input type="checkbox" id="light" value="True"> Pack light
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" id="carry" value="True"> Carry on
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" id="tablet" value="False"> Tablet
+    </label>
+    <br>
+
+    <input type="button" onclick="selectPack()" value="Select for packing">
+</form>
+
+<p id="result">Packing details will be displayed here.</p>
+
+<script>
+    var my_pack = {};
+
+    function selectPack() {
+        my_pack = {};
+        my_pack.light = document.getElementById("light").checked;
+        my_pack.carry = document.getElementById("carry").checked;
+        my_pack.tablet = document.getElementById("tablet").checked;
+
+        document.getElementById("result").innerHTML = JSON.stringify(my_pack);
+    }
+</script>
+
+<form>
+    <label for="travelMonth">Enter travel month:</label>
+    <input type="text" id="travelMonth" value="May">
+    <br>
+
+    <label for="price">Enter price:</label>
+    <input type="text" id="price">
+    <br>
+
+    <input type="button" onclick="updatePack()" value="Update the pack">
+</form>
+
+<script>
+    function updatePack() {
+        var travelMonthValue = document.getElementById("travelMonth").value;
+        var priceValue = document.getElementById("price").value;
+
+        my_pack[travelMonthValue] = priceValue;
+
+        document.getElementById("result").innerHTML = JSON.stringify(my_pack);
+    }
+</script>
+
+</body>
+</html>
