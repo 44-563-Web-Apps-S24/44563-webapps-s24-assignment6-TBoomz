@@ -29,13 +29,13 @@
 
 <script>
     function discount() {
-        var priceValue = document.getElementById("price").value;
-        var countValue = document.getElementById("count").value;
-        var discountValue = document.getElementById("reductions").value;
+        var priceValue = parseFloat(document.getElementById("price").value);
+        var countValue = parseFloat(document.getElementById("count").value);
+        var discountValue = parseFloat(document.getElementById("reductions").value);
 
         var myOutput = "";
 
-        for (var i = 5; i <= 9; i++) {
+        for (var i = 0; i <= 5; i++) {
             var discountPercent = discountValue + i;
             var calculatedCost = (priceValue * countValue * (100 - discountPercent) / 100).toFixed(1);
             myOutput += discountPercent + "% is " + calculatedCost + "; ";
@@ -44,6 +44,7 @@
         document.getElementById("result").innerHTML = "Totals are: " + myOutput;
     }
 </script>
+
 
 </body>
 </html>
